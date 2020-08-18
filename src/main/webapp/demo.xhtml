@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:t="http://myfaces.apache.org/tomahawk"
+>
+<h:body>
+
+    <h:form id="some_example_form">
+
+        <t:dataList id="some_data_list"
+                    var="dataListTry"
+                    value="#{packageGroups.packageGroupList}" rowIndexVar="pos">
+
+            <t:div>
+                <t:outputLabel title="label"/>
+                <t:outputText value="Table_#{pos}"/>
+            </t:div>
+
+            <t:selectBooleanCheckbox title="External">
+                <f:ajax event="change" listener="#{dataListTry.run}" render=":some_example_form"/>
+            </t:selectBooleanCheckbox>
+
+            <t:column>
+
+                <t:dataTable id="some_datatable_id"
+                             forceId="true"
+                             forceIdIndex="true"
+                             value="#{dataListTry.packageItems}"
+                             var="o">
+
+                    <t:column>
+                        <h:outputText value="#{o.prefix}"/>
+                    </t:column>
+
+                    <t:column defaultSorted="false" sortable="false" width="28px">
+                        <t:selectBooleanCheckbox value="#{o.selected}">
+
+                            <f:ajax render="some_datatable_id"/>
+                            <f:ajax event="change" listener="#{dataListTry.run(o)}"/>
+                        </t:selectBooleanCheckbox>
+                    </t:column>
+                </t:dataTable>
+            </t:column>
+        </t:dataList>
+        <br/>
+
+        <h:commandButton value="Submit" action="demo" forceId="true"/>
+        <h:commandButton value="MoveBack" action="demo" forceId="true" actionListener="#{packageGroups.moveBack()}"/>
+    </h:form>
+
+</h:body>
+
+</html>

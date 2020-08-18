@@ -1,0 +1,46 @@
+#Ignore IntelliJ IDEA files
+.idea
+*.iml
+
+target/
+
+#Ignore all .log files
+*log*.txt
+*.jsonl
+*.log
+
+*.jar
+
+#Ignore all 'Desktop Service Store' files (Mac OS)
+*.DS_Store
+**/distrib*/*
+
+#Ignore python scripts' precompiled binaries
+*.pyc
+
+#Ignore ansible *.retry files
+*.retry
+
+#Ignore miscelanious files
+*.orig
+doc_src/~*
+*.BASE
+*.LOCAL
+*.REMOTE
+*.xml.versionsBackup
+**/dependency-reduced-pom.xml
+tests/load_tests/loader/*.csv
+install/product/roles/ansible_roles/*
+install/product/roles/ps_common*/*
+install/artifactory/inventory/localhost/group_vars/b2b_datamart.yml
+install/product/inventory/localhost/group_vars/b2b_datamart_zookeepers.yml
+install/product/inventory/smoke_teamcity_vrac/group_vars/b2b_datamart_zookeepers.yml
+install/product/inventory/staging/group_vars/b2b_datamart_zookeepers.yml
+source/mib/src/main/scripts/PETER-SERVICE-MIBS.mib
+source/mib/src/main/scripts/PETER-SERVICE-SNMP-INT-SERVER-MIB.mib
+source/**/sonar.properties
+source/common/src/main/scripts/install
+source/common/src/main/scripts/update
+source/**/.allure
+*.jsonl.*.json.zip
+*.log.*.gz
